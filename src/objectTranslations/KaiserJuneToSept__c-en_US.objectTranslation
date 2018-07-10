@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>KaiserJuneToSept</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>KaiserJuneToSept</value>
+    </caseValues>
+    <fields>
+        <label><!-- CRE --></label>
+        <name>CRE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coordinator --></label>
+        <name>Coordinator__c</name>
+    </fields>
+    <fields>
+        <label><!-- Department --></label>
+        <name>Department__c</name>
+    </fields>
+    <fields>
+        <label><!-- Division --></label>
+        <name>Division__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer --></label>
+        <name>Employer__c</name>
+    </fields>
+    <fields>
+        <label><!-- FID --></label>
+        <name>FID__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Name --></label>
+        <name>First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Full Name --></label>
+        <name>Full_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Name --></label>
+        <name>Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- MemberID --></label>
+        <name>MemberID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member --></label>
+        <name>Member__c</name>
+        <relationshipLabel><!-- KaiserJuneToSept --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Organizer --></label>
+        <name>Organizer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Petition --></label>
+        <name>Petition__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reg Dir --></label>
+        <name>Reg_Dir__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Turn Out By --></label>
+        <name>Turn_Out_By__c</name>
+        <relationshipLabel><!-- KaiserJuneToSept (Turn Out By) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Worksite --></label>
+        <name>Worksite__c</name>
+    </fields>
+    <fields>
+        <label><!-- 80% Leader --></label>
+        <name>X80_Leader__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,932 @@
+<apex:page sidebar="false" showHeader="false" controller="ctrlr_rpt80X">
+<script src="/soap/ajax/38.0/connection.js" type="text/javascript"></script>
+<script src="/soap/ajax/38.0/apex.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<apex:includeScript value="{!URLFOR($Resource.mo_assets, '/mo_assets/js/jquery.js')}"/>
+
+<apex:includeScript value="{!URLFOR($Resource.mo_assets, '/mo_assets/js/dgutils.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.mo_assets, '/mo_assets/js/moment-with-locales.min.js')}"/>
+<apex:includeScript value="//ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular.js"/>
+<apex:stylesheet value="{!URLFOR($Resource.mo_assets, '/mo_assets/css/bootstrap.css')}"/>
+<apex:includeScript value="{!URLFOR($Resource.mo_assets, '/mo_assets/js/bootstrap.js')}"/>
+<apex:includeScript value="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.7.0/angular-sanitize.min.js"/>
+<apex:includeScript value="//cdnjs.cloudflare.com/ajax/libs/ng-csv/0.3.6/ng-csv.min.js"/>
+<link rel="stylesheet" href="{!URLFOR($Resource.mo_assets, '/mo_assets/css/tablesorter/tablesorter_blue_style.css')}" type="text/css" id="" media="print, projection, screen" />
+<style type="text/css" media="screen,print">
+   .page-breaker {
+     display: block;
+     page-break-after: always;
+     border :1px solid black
+   }
+</style>
+<div align="center">
+<font size="+2"><div id="titleDiv">80% Leaders 2018</div></font>
+<br>&nbsp;</br>
+<i>Updated:
+<script language="JavaScript">
+document.write((new Date).toLocaleString());
+</script>
+</i>
+
+<div id="mainDiv" ng-controller="rptCtrl"  ng-app="app">
+
+<br>&nbsp;</br>
+
+<font color="green">
+<div align="center" id="filterDiv"></div>
+</font>
+
+<font size="+2"><div align="center" id="progressDiv"></div></font>
+
+<div align="center" id="leaderDiv" ng-show="ldrTableShow">
+<div id="leaderDivTitle"><font size="+1">Leaders</font></div>
+    <div class="row" ng-show="ldrTableShow">
+        <font size="-2"><div id="filterDiv"></div></font>
+        <button type="button" class="btn btn-primary" ng-csv="filteredLDRS" filename="{{pagefilter}}_leaders_{{pagedate}}.csv" add-bom="true" csv-label="true">Download Data</button>
+    </div>
+<div id="leaderCountDiv"></div>
+<br/>
+<table cellpadding="5" border="1" cellspacing="0">
+  <tr valign="bottom">
+    <td bgcolor="#481C60" align="center"><font color="white">Division</font></td>
+    <td bgcolor="#481C60" width="8%" align="center"><font color="white">Reg<br/>Director</font></td>
+    <td bgcolor="#481C60" width="8%" align="center"><font color="white">Coordinator</font></td>
+    <td bgcolor="#481C60" width="8%" align="center"><font color="white">Organizer</font></td>
+    <td bgcolor="#481C60" width="8%" align="center"><font color="white">Employer</font></td>
+    <td bgcolor="#481C60" width="1%" align="center"><font color="white"></font></td>
+    <td bgcolor="#481C60" width="8%" align="center"><font color="white">Leader<br/>Name</font></td>
+    <td bgcolor="#481C60" width="5%" align="center"><font color="white">Leader<br/>Title</font></td>
+    <td bgcolor="#481C60" width="6%" align="center"><font color="white">Leader<br/>Department</font></td>
+    <td bgcolor="#481C60" width="6%" align="center"><font color="white">Eboard Person</font></td>
+    <td bgcolor="#481C60" width="6%" align="center"><font color="white">Ecomm Person</font></td>
+    <td bgcolor="#481C60" width="1%" align="center"><font color="white"></font></td>
+    <td bgcolor="#481C60" width="3%" align="center"><font color="white">Eboard?</font></td>
+    <td bgcolor="#481C60" width="3%" align="center"><font color="white">LA2017</font></td>
+    <td bgcolor="#481C60" width="3%" align="center"><font color="white">COOL</font></td>
+    <td bgcolor="#481C60" align="center"><font color="white">Signatures</font></td>
+    <td bgcolor="#481C60" align="center"><font color="white">COPE Pledge Amt</font></td>
+    <td bgcolor="#481C60" align="center"><font color="white">COPE Rounds</font></td>
+    <td bgcolor="#481C60" align="center"><font color="white">Leader<br/>Activities</font></td>
+    <td bgcolor="#481C60" align="center"><font color="white">Phone Bank 2017 Shifts</font></td>
+    <td bgcolor="#481C60" align="center"><font color="white">Phone Bank 2018 Shifts</font></td>
+    <td bgcolor="#481C60" align="center"><font color="white">Total<br/>Supporters</font></td>
+    <td bgcolor="#481C60" align="center" ng-if="pagefilter != 'hospital'"><font color="white">Picket 1 Supporters</font></td>
+    <td bgcolor="#481C60" align="center" ng-if="pagefilter != 'hospital'"><font color="white">Picket 1 Supporters Pct</font></td>
+    <td bgcolor="#481C60" align="center" ng-if="pagefilter == 'kaiser'"><font color="white">Picket 2 Supporters</font></td>
+    <td bgcolor="#481C60" align="center" ng-if="pagefilter == 'kaiser'"><font color="white">Picket 2 Supporters Pct</font></td>
+    <td bgcolor="#481C60" align="center" ng-if="pagefilter != 'kaiser'"><font color="white">P7 Supporters Active</font></td>
+    <td bgcolor="#481C60" align="center" ng-if="pagefilter != 'kaiser'"><font color="white">P7 Supporters Active Pct</font></td>
+    <td bgcolor="#481C60" align="center" ng-if="pagefilter == 'dignity'"><font color="white">Voted Ratification</font></td>
+</tr>
+<tbody class="leaderRowTemplate" >
+    <tr valign="top" ng-repeat="row in EXPORT | filter:{HospitalFilter:pagefilter} | orderBy:['-Division','RegionalDirector','Coordinator','Organizer','Employer','Name'] as filteredLDRS">
+    <td align="center"><font size="-2">{{row.Division}}</font></td>
+    <td align="left"><font size="-2">{{row.RegionalDirector}}</font></td>
+    <td align="center"><font size="-2">{{row.Coordinator}}</font></td>
+    <td align="center"><font size="-2">{{row.Organizer}}</font></td>
+    <td align="center"><font size="-2">{{row.Employer}}</font></td>
+    <td bgcolor="#481C60" ></td>
+    <td align="center">{{row.Name}}</td>
+    <td align="center"><font size="-2">{{row.Title}}</font></td>
+    <td align="center"><font size="-2">{{row.Department}}</font></td>
+    <td align="center"><font size="-2">{{row.EboardName}}</font></td>
+    <td align="center">{{row.EcomName}}</td>
+    <td bgcolor="#481C60" ></td>
+    <td align="center">{{row.Eboard}}</td>
+    <td align="center">{{row.LA2017}}</td>
+    <td align="center">{{row.COOL}}</td>
+    <td align="center">{{row.DialysisSigs}}</td>
+    <td align="center">{{row.COPE}}</td>
+    <td align="center">{{row.Goal10x10}}</td>
+    <td align="center">{{row.LdrActivities}}</td>
+    <td align="center">{{row.PB2017}}</td>
+    <td align="center">{{row.PB2018}}</td>
+    <td align="center">{{row.TotalSupps}}</td>
+    <td align="center" ng-if="pagefilter != 'hospital'">{{row.Pkt1Supp}}</td>
+    <td align="center" ng-if="pagefilter != 'hospital'">{{row.Pkt1Supp / row.TotalSupps | percentage:1}}</td>
+    <td align="center" ng-if="pagefilter == 'kaiser'">{{row.Pkt2Supp}}</td>
+    <td align="center" ng-if="pagefilter == 'kaiser'">{{row.Pkt2Supp / row.TotalSupps | percentage:1}}</td>
+    <td align="center" ng-if="pagefilter != 'kaiser'">{{row.P7ActiveSupps}}</td>
+    <td align="center" ng-if="pagefilter != 'kaiser'">{{row.P7ActiveSupps / row.TotalSupps | percentage:1}}</td>
+    <td align="center" ng-if="pagefilter == 'dignity'"><input type="checkbox" ng-model="row.VotedRatification" ng-disabled="true"/></td>
+</tr>
+</tbody>
+</table>
+<br/>&nbsp;<br/>
+
+</div>
+
+
+<br>&nbsp;</br>
+<br>&nbsp;</br>
+<i>CONFIDENTIAL</i></div>
+<br>&nbsp;</br>
+<br>&nbsp;</br>
+<div id="debugDiv" align="center"></div>
+</div>
+<script language="JavaScript">
+
+    var pagefilter = "{!$CurrentPage.parameters.filter}";
+    if(pagefilter == null || pagefilter == "null" || pagefilter == "") {
+      pagefilter = ""; 
+    } else {
+      $("#filterDiv").html("Filter = " + toProperCase(pagefilter));
+    }
+
+    var app = angular.module('app', ['ngSanitize', 'ngCsv']);
+    app.filter('percentage', ['$filter', function ($filter) {
+      return function (input, decimals) {
+        return $filter('number')(input * 100, decimals) + '%';
+      };
+    }]);
+    app.controller('rptCtrl', function($scope){
+        $scope.safeApply = function(fn) {
+          var phase = this.$root.$$phase;
+          if(phase == '$apply' || phase == '$digest') {
+            if(fn && (typeof(fn) === 'function')) {
+              fn();
+            }
+          } else {
+            this.$apply(fn);
+          }
+        }
+    
+        $scope.pagefilter = pagefilter;
+        $scope.date = new Date();
+        $scope.pagedate = $scope.date.toLocaleDateString();
+        console.log($scope.pagefilter);
+        console.log($scope.pagedate);
+        $scope.turfMapSetup = function(){
+            turfLength = $scope.turfJSON.length;
+            //build out turf map line by line from turf
+            for(var i = 0; i < turfLength; i++){
+                //include the hospital system referenced by name in the emCorpMap
+                $scope.emCorpMap[$scope.turfJSON[i].Name.toLowerCase()] = $scope.turfJSON[i].Hospital_System__c;
+                //initialize turf object
+                $scope.turfMap[$scope.turfJSON[i].Name] = new Object();
+                //include some basic details
+                $scope.turfMap[$scope.turfJSON[i].Name].HospitalSystem = $scope.turfJSON[i].Hospital_System__c;
+                $scope.turfMap[$scope.turfJSON[i].Name].Division = $scope.turfJSON[i].Account_Group__c;
+                $scope.turfMap[$scope.turfJSON[i].Name].AccountId = $scope.turfJSON[i].Id;
+                $scope.turfMap[$scope.turfJSON[i].Name].BU_Count = 0;
+                $scope.turfMap[$scope.turfJSON[i].Name].EmployerId = $scope.turfJSON[i].Employer_ID__c;
+                $scope.turfMap[$scope.turfJSON[i].Name].Picket = $scope.turfJSON[i].Phase_6_Picket__c;
+                $scope.turfMap[$scope.turfJSON[i].Name].EcomName = $scope.turfJSON[i].Executive_Committee__c;
+                //include regional director
+                $scope.turfMap[$scope.turfJSON[i].Name].Organizer = "Vacant";
+                $scope.turfMap[$scope.turfJSON[i].Name].Coordinator = "Vacant";
+                $scope.turfMap[$scope.turfJSON[i].Name].RegionalDirector = "Vacant";
+                if ($scope.turfJSON[i].Regional_Director__r != null) {
+                    $scope.turfMap[$scope.turfJSON[i].Name].RegionalDirector = $scope.turfJSON[i].Regional_Director__r.Name;
+                    if($scope.rdSet.indexOf($scope.turfJSON[i].Regional_Director__r.Name) < 0){
+                        $scope.rdSet.push($scope.turfJSON[i].Regional_Director__r.Name);
+                    }
+                }
+
+                //include coordinator
+                if ($scope.turfJSON[i].Coordinator__r != null) {
+                    $scope.turfMap[$scope.turfJSON[i].Name].Coordinator = $scope.turfJSON[i].Coordinator__r.Name;
+                    if($scope.cdSet.indexOf($scope.turfJSON[i].Coordinator__r.Name) < 0){
+                        $scope.cdSet.push($scope.turfJSON[i].Coordinator__r.Name);
+                    }
+                }
+                //include organizer
+                if ($scope.turfJSON[i].Organizer_1__r != null) {
+                    $scope.turfMap[$scope.turfJSON[i].Name].Organizer = $scope.turfJSON[i].Organizer_1__r.Name;
+                    if($scope.orgSet.indexOf($scope.turfJSON[i].Organizer_1__r.Name) < 0){
+                        $scope.orgSet.push($scope.turfJSON[i].Organizer_1__r.Name);
+                    }
+                }
+
+                //make sets for employer names, districts, and seats
+                if ($scope.emSet.indexOf($scope.turfJSON[i].Name) < 0) {
+                    $scope.emSet.push($scope.turfJSON[i].Name);
+                }    
+                //[TODO] need to get the District 2017 Constituency name in the query first before this will work
+                $scope.turfMap[$scope.turfJSON[i].Name].District = $scope.turfJSON[i].District_2017__r.ConstituencyName__c;
+                if ($scope.turfJSON[i].District_2017__r != null && $scope.districtSet.indexOf($scope.turfJSON[i].District_2017__r.ConstituencyName__c) < 0) {
+                    $scope.districtSet.push($scope.turfJSON[i].District_2017__r.ConstituencyName__c);
+                }
+                $scope.turfMap[$scope.turfJSON[i].Name].Seat = $scope.turfJSON[i].Constituency__r.ConstituencyName__c;
+                if ($scope.turfJSON[i].Constituency__r != null && $scope.seatSet.indexOf($scope.turfJSON[i].Constituency__r.ConstituencyName__c) < 0) {
+                    $scope.seatSet.push($scope.turfJSON[i].Constituency__r.ConstituencyName__c);
+                }
+                $scope.turfMap[$scope.turfJSON[i].Name].BU_Count = $scope.turfJSON[i].BU_Count__c;                
+            }
+        }
+
+        $scope.ecomMapSetup = function(){
+            var eLength = $scope.ecom.length;
+            for (var i = 0; i < eLength; i++){
+                $scope.ecomMap[$scope.ecom[i].Account.District_2017__r.ConstituencyName__c] = $scope.ecom[i].FID__c;
+            }
+        }
+
+        $scope.eboardPeopleMapSetup = function(){
+            for (fid in $scope.seatEboardMap){
+                var seat = $scope.seatEboardMap[fid];
+                var eSet = [];
+                if($scope.seatEboardMapPeople[seat] != null){
+                    eSet = $scope.seatEboardMapPeople[seat];
+                }
+                if($scope.ldrMap[fid] != null){
+                    var name = $scope.ldrMap[fid].Name;
+                    eSet.push(name);
+                    $scope.seatEboardMapPeople[seat] = eSet;
+                }
+            }
+            console.log($scope.seatEboardMapPeople);
+        }
+
+        $scope.buildOUTPUT_LDRS = function(){
+            var iLen = $scope.ldrSet.length;
+                console.log($scope.eboardMap);
+                console.log($scope.seatEboardMap);
+            for(var i = 0; i < iLen; i++){
+                var fid = $scope.ldrSet[i];
+                var ldrRow = $scope.ldrMap[fid];     
+                var myrow = {};
+                $scope.SetupLdrRow(myrow, ldrRow);
+                //get rounds info setup here
+                myrow.RoundsTotal = 0;
+                if(myrow.RoundsDate !== undefined){
+                    var rDate = new Date(myrow.RoundsDate);
+                    var R4Date = new Date('07/31/2017');
+                    var R3Date = new Date('11/31/2017');
+                    var R2Date = new Date('05/31/2018');
+                    if(rDate <= R4Date){
+                        myrow.RoundsTotal = 4;
+                    }
+                    else if(rDate <= R3Date){
+                        myrow.RoundsTotal = 3;
+                    }
+                    else if(rDate <= R2Date){
+                        myrow.RoundsTotal = 2;
+                    }
+                }
+                var empKey = myrow.Employer.toLowerCase();
+                //add supporter fid count to the row
+                if($scope.ldrSuppSetMap[fid] != null){
+                    var suppSet = $scope.ldrSuppSetMap[fid];                
+                    myrow.SupporterCount = suppSet.length;
+                }
+                //get active supporters too
+                if($scope.ldrSuppActiveSetMap[fid] != null){
+                    var activeSuppSet = $scope.ldrSuppActiveSetMap[fid];
+                    myrow.SupporterActiveCount = activeSuppSet.length;
+                }
+                //now determine if this is an eboard person
+                myrow.Eboard = false;
+                if($scope.eboardMap[fid] != null){
+                    myrow.Eboard = true;
+                }
+                //get the eboard person's name in there - but will have the seat if not found
+                //this is tricky now that i find that multiple eboard people per seat happen
+                //starting out i figure i will let eboard ppl have their seat displayed
+                myrow.EboardName = myrow.Seat;
+                if($scope.seatEboardMapPeople[myrow.Seat] != null){
+                    //only need the list of people for eboard
+                    var nameSet = $scope.seatEboardMapPeople[myrow.Seat];
+                    myrow.EboardName = nameSet.join(";");
+                }
+                
+                
+                //gotta get the ecom name too
+                myrow.EcomName = "Vacant " + myrow.District;
+                myrow.Hospital = "";
+                if($scope.turfMap[myrow.Employer] != null){
+                    if($scope.turfMap[myrow.Employer].EcomName != null){
+                        myrow.EcomName = $scope.turfMap[myrow.Employer].EcomName;
+                    }
+                    if($scope.turfMap[myrow.Employer].HospitalSystem !== undefined){
+                        myrow.Hospital = $scope.turfMap[myrow.Employer].HospitalSystem.toLowerCase();
+                    }
+                }
+                //get hospital system for filter purposes
+                myrow.HospitalSystem = "kaiser";
+                var ckLine = false;
+                if(empKey.indexOf("kaiser") < 0 && myrow.Hospital.indexOf("kaiser") < 0){
+                    myrow.HospitalSystem = "hospital";
+                }
+                if($scope.emCorpMap[empKey] != null && $scope.emCorpMap[empKey].toLowerCase().indexOf("dignity") >= 0){
+                    myrow.HospitalSystem = "dignity";
+                }
+                $scope.leaders.push(myrow);
+            }
+        }
+
+        $scope.SetupLdrRow = function(row,ldr){
+            row.Id = ldr.Id;
+            row.AccountId = ldr.AccountId;
+            row.FID__c = ldr.FID__c;
+            row.Name = ldr.Name;
+            row.Department = ldr.Department;
+            //row.Email = ldr.Email;
+            //row.MobilePhone = ldr.MobilePhone;
+            row.Title = ldr.Title;
+            row.Account = ldr.Account;
+            row.Organizer = "Vacant";
+            if(ldr.Account.Organizer_1__r !== undefined){
+                row.Organizer = ldr.Account.Organizer_1__r.Name;
+            }
+            row.Coordinator = "Vacant"
+            if(ldr.Account.Coordinator__r !== undefined){
+                row.Coordinator = ldr.Account.Coordinator__r.Name;
+            }
+            row.RegionalDirector = "Vacant"
+            if(ldr.Account.Regional_Director__r !== undefined){
+                row.RegionalDirector = ldr.Account.Regional_Director__r.Name;
+            }
+            row.Employer = ldr.Account.Name.replace(/amp;/g,'');
+            row.Seat = $scope.turfMap[ldr.Account.Name.replace(/amp;/g,'')].Seat.replace(/ - .*/g,'');
+            row.District = $scope.turfMap[ldr.Account.Name.replace(/amp;/g,'')].District;
+            //these fields should mirror the things built within sr response table
+            row.Rounds = ldr.Rounds;
+            row.RoundsDate = ldr.Instated_To_Office__c;
+            row.LA2017 = ldr.LA2017;
+            row.Ninja = ldr.Ninja;
+            row.VotedRatification = ldr.VotedRatification;
+            row.COOL = ldr.COOL;
+            row.PB2017Shifts = ldr.PB2017Shifts;
+            row.PB2018Shifts = ldr.PB2018Shifts;
+            row.sigs = ldr.sigs;
+            row.COPE = ldr.COPE;
+            row.LdrActivities = ldr.LdrActivities;
+            row.Picket1Supp = ldr.Picket1Supp;
+            row.Picket2Supp = ldr.Picket2Supp;
+            row.SupporterCount = 0;
+            row.SupporterActiveCount = 0;
+        }
+
+        $scope.chunk_size = 2000;  //DONT CHANGE WITHOUT CHANGING CONTROLLER 'getRecords' METHOD (NUMBER NEEDS SYNC - OTHERWISE ALL DATA ISNT PROCESSED)
+
+        $scope.getData = function(){
+            console.log("setup data query start");
+            try{
+                Visualforce.remoting.Manager.invokeAction(
+                    '{!$RemoteAction.ctrlr_rpt80X.getRecords}',
+                    null,$scope.query_eboard,$scope.handleResult);
+            }
+            catch(e){
+                alert("error: " + e);
+            }
+        }
+
+        $scope.handleResult = function(result,event){
+            console.log(result.length);
+            var rLength = result.length;
+            for(var i = 0; i < rLength; i++){
+                $scope.processData(result[i]);
+            }
+            //do more
+            if(rLength == $scope.chunk_size){
+                var lastIndex = $scope.chunk_size - 1;
+                {!$RemoteAction.ctrlr_rpt80X.getRecords}(result[lastIndex].Id, $scope.query_eboard,$scope.handleResult);
+            }
+            else{
+                console.log("setup data query ending");
+                $scope.getData_cons($scope.query_cons);
+            }                        
+        }
+
+        $scope.getPLData = function(query){
+            console.log("petition ledger query start");
+            console.log(query);
+            try{
+                Visualforce.remoting.Manager.invokeAction(
+                    '{!$RemoteAction.ctrlr_rpt80X.getRecords}'
+                    ,null,query,$scope.handleResult_PL);
+            }
+            catch(e)
+            {
+                alert("error: " + e);
+            }
+        }
+
+        $scope.handleResult_PL = function(result, event){
+            $scope.dotStep();
+            var rLength = result.length;
+            console.log(rLength);
+            for(var i = 0; i < rLength; i++){
+                $scope.processPLData(result[i]);
+            }
+            if(result.length===$scope.chunk_size){
+                var lastIndex = $scope.chunk_size - 1;
+                {!$RemoteAction.ctrlr_rpt80X.getRecords}(result[lastIndex].Id,$scope.query_pl,$scope.handleResult_PL);
+            }
+            else{
+                console.log("pl query and processing finished");
+                //post query batch processing                       
+                $scope.endReport();
+            }
+        }
+        $scope.getSRData = function(query){
+            console.log("survey response query start");
+            console.log(query);
+            try{
+                Visualforce.remoting.Manager.invokeAction(
+                    '{!$RemoteAction.ctrlr_rpt80X.getRecords}'
+                    ,null,query,$scope.handleResult_SR);
+            }
+            catch(e)
+            {
+                alert("error: " + e);
+            }
+        }
+
+        $scope.handleResult_SR = function(result, event){
+            // handle a batch here
+            $scope.dotStep();
+            var rLength = result.length;
+            console.log(rLength);
+            for(var i = 0; i < rLength; i++){
+                $scope.processSRdata(result[i]);
+            }
+            // do more
+            if(result.length===$scope.chunk_size){
+                var lastIndex = $scope.chunk_size - 1;
+                {!$RemoteAction.ctrlr_rpt80X.getRecords}(result[lastIndex].Id,$scope.query_sr,$scope.handleResult_SR);
+            }
+            else{
+                console.log("sr query and processing finished");
+                //post query batch processing   
+                $scope.getPLData($scope.query_pl);
+                //$scope.endReport();
+            }
+        }
+
+        $scope.getData_cons = function(query) {
+            console.log("contacts query start");
+            console.log(query);
+            try{
+                Visualforce.remoting.Manager.invokeAction(
+                    '{!$RemoteAction.ctrlr_rpt80X.getRecords}'
+                    ,null,query,$scope.handleResult_cons);
+            }
+            catch(e){
+                alert("error: "+e);
+            }
+        }
+
+        $scope.handleResult_cons = function(result, event){
+            $scope.dotStep();
+            var rLength = result.length;
+            console.log(rLength);
+            for(var i = 0; i < rLength; i++){
+                $scope.processData_cons(result[i]);
+            }
+            //do more
+            if(rLength == $scope.chunk_size){
+                var lastIndex = $scope.chunk_size - 1;
+                {!$RemoteAction.ctrlr_rpt80X.getRecords}(result[lastIndex].Id, $scope.query_cons,$scope.handleResult_cons);
+            }
+            else{
+                console.log("contact query chain finished"); 
+                //post query processing
+                $scope.getSRData($scope.query_sr);
+            }
+        }
+
+        /*** PROCESSING METHODS ***/
+
+        $scope.processData = function(row){
+            //need to get the eboard seat map setup properly
+            var thisSeat = row.ConstituencyName__c;
+            thisSeat = thisSeat.replace(/ -.*/g,'');
+            $scope.seatEboardMap[row.SeatHolder__r.FID__c] = thisSeat;
+        }
+
+        $scope.processData_cons = function(row){
+            //begin with leaders being split into set and map ([TODO]:decide if need only map)
+            var fid = row.FID__c
+            if(row.X80_Leader__c == true && $scope.ldrSet.indexOf(fid) < 0){
+                $scope.ldrSet.push(fid);
+                //setup a few fields mirroring the survey response fields for uniformity
+                row.sigs = 0;
+                row.Rounds = 0;
+                row.LA2017 = false;
+                row.LdrActivities = 0;
+                row.Ninja = false;
+                row.VotedRatification = false;
+                row.COOL = false;
+                row.PB2017Shifts = 0;
+                row.PB2018Shifts = 0;
+                row.Picket1Supp = 0;
+                row.Picket2Supp = 0;
+                row.COPE = 0;
+                row.Seat = row.Account.Constituency__r.ConstituencyName__c.replace(/ - .*/,'');
+                if(row.COPE_Pledge__c > 0){
+                    row.COPE = row.COPE_Pledge__c;
+                }
+                //push setup row into associative ldr array
+                $scope.ldrMap[fid] = row;
+            }
+            //pull eboard into their own map 
+            if(row.Executive_Body_Title__c == "Executive Board" || row.Executive_Body_Title__c == "Executive Committee") {
+                $scope.eboardMap[fid] = row;
+            }
+            //build supporter fid set onto ldrSuppSetMap and ldrSuppActiveSetMap
+            if(row.Stretch_Leader__r != null && row.Stretch_Leader__r.Account.Regional_Director__r != null){
+                ldrFID = row.Stretch_Leader__r.FID__c;
+                var suppSet = [];
+                if($scope.ldrSuppSetMap[ldrFID] != null){
+                    suppSet = $scope.ldrSuppSetMap[ldrFID];
+                    var activeSuppSet = [];
+                    if($scope.ldrSuppActiveSetMap[ldrFID] != null){
+                        activeSuppSet = $scope.ldrSuppActiveSetMap[ldrFID];
+                    }
+                    if(row.X80_P7_Active__c){
+                        activeSuppSet.push(fid);
+                        $scope.ldrSuppActiveSetMap[ldrFID] = activeSuppSet;
+                    }
+                }
+                suppSet.push(fid);
+                $scope.ldrSuppSetMap[ldrFID] = suppSet;
+            }
+            //fix the district name in the turfmap
+            if(row.Account.District_2017__r != undefined){
+                if($scope.turfMap[row.Account.Name.replace(/amp;/,'')] != null){
+                    $scope.turfMap[row.Account.Name.replace(/amp;/,'')].District = row.Account.District_2017__r.ConstituencyName__c;
+                }
+            }
+        }
+
+        $scope.processSRdata = function(srTableRow){
+            var fid = srTableRow.FID__c;
+            var response = srTableRow.Response_Value__c.trim().substring(0,1).toLowerCase();
+            var srCode = srTableRow.Survey_Code__c;
+            var reportGroup = srTableRow.Report_Group__c;
+            if($scope.SR_ResponseTable[srCode] !== undefined){
+                if($scope.SR_ResponseTable[srCode].handle){
+                    $scope.SR_ResponseTable[srCode].fun(srTableRow);
+                }
+                if($scope.SR_ResponseTable[srCode][response] !== undefined){
+                    var addAmt = $scope.SR_ResponseTable[srCode][response];
+                    var thisField = $scope.SR_ResponseTable[srCode].fieldname;
+                    if($scope.ldrMap[fid] != null){                        
+                        $scope.ldrMap[fid][thisField] += addAmt;
+                    }                
+                }
+            }
+        }
+
+        $scope.processPLData = function(plTableRow){
+            var fid = plTableRow.Transferred_From__r.FID__c;
+            if($scope.ldrMap[fid] != null){
+                var sigCount = plTableRow.Valid_Signatures__c;
+                $scope.ldrMap[fid].sigs += sigCount;
+            }
+        }
+
+        /*** SURVEY RESPONSE HANDLING OBJECT ***/
+           
+        $scope.SR_ResponseTable = {
+            "C16":{fieldname:"Rounds",handle:false,c:1},
+            "C17":{fieldname:"Rounds",handle:false,c:1},
+            "C18":{fieldname:"Rounds",handle:false,c:1},
+            "C19":{fieldname:"Rounds",handle:false,c:1},
+            "LA2":{fieldname:"LA2017",handle:true,
+                    fun:function(row){
+                        //LeaderShip Assembly 2017 attendees = 'A. Attended'
+                        var response = row.Response_Value__c.trim().substring(0,1).toLowerCase();
+                        if(response === "a" && $scope.ldrMap[row.FID__c] != null){
+                            $scope.ldrMap[row.FID__c][this.fieldname] = true;
+                        }
+                    }
+                  },
+            "PB8":{fieldname:"PB2017Shifts",handle:true,
+                    fun:function(row){
+                        //• PB2017Shifts – use the survey code PB8 and add_info_numeric is greater than zero
+                        var addinfo_numeric = row.Add_Info_Numeric__c;
+                        if(addinfo_numeric > 0 && $scope.ldrMap[row.FID__c] != null){
+                            $scope.ldrMap[row.FID__c][this.fieldname] += addinfo_numeric;
+                        }
+                    }
+                  },
+            "JP4":{fieldname:"PB2018Shifts",handle:true,
+                    fun:function(row){
+                        //• PB2018Shifts – use the survey code JP4 – you must do an upload to Survey Response
+                        //(need upload from recruits to sr)
+                        var addinfo_numeric = row.Add_Info_Numeric__c;
+                        if(addinfo_numeric > 0 && $scope.ldrMap[row.FID__c] != null){
+                            $scope.ldrMap[row.FID__c][this.fieldname] += addinfo_numeric;
+                        }
+                    }
+                  },
+            "NJ1":{fieldname:"Ninja",handle:true,
+                    fun:function(row){
+                        //• Ninja - use the survey code NJ1
+                        var response = row.Response_Value__c.trim().substring(0,1).toLowerCase();
+                        if(response === "y" && $scope.ldrMap[row.FID__c] != null){
+                            $scope.ldrMap[row.FID__c][this.fieldname] = true;
+                        }
+                    }
+                  },
+            "DR1":{fieldname:"VotedRatification",handle:true,
+                    fun:function(row){
+                        //• VotedRatification – use survey code DR1 and response value is Attended and Voted
+                        var response = row.Response_Value__c.trim().substring(0,1).toLowerCase();
+                        if(response === "y" && $scope.ldrMap[row.FID__c] != null){
+                            $scope.ldrMap[row.FID__c][this.fieldname] = true;
+                        }
+                    }
+                  },
+            "C1B":{fieldname:"COOL",handle:true,
+                    fun:function(row){
+                        //• COOL – use the survey code C1B
+                        var response = row.Response_Value__c.trim().substring(0,1).toLowerCase();
+                        if(response === "y" && $scope.ldrMap[row.FID__c] != null){
+                            $scope.ldrMap[row.FID__c][this.fieldname] = true;
+                        }
+                    }
+                  },
+            "6A3":{fieldname:"Picket1Supp",handle:true,
+                    fun:function(row){
+                        //Note!!! You are getting the supporters
+                        //• Picket1Supp – use survey code 6A3 
+                        //and [Response Value] IN ('A. Attended','M. Committed', 'B. Confirmed', 'D. Reminded') 
+                        var response = row.Response_Value__c.trim().substring(0,1).toLowerCase();
+                        var addIndex = ["a","m","b","d"];
+                        if(addIndex.indexOf(response) >= 0 && row.Contact__r != null && row.Contact__r.Stretch_Leader__r != null){
+                            var ldrFID = row.Contact__r.Stretch_Leader__r.FID__c;
+                            var suppSet = $scope.ldrSuppSetMap[ldrFID];
+                            if(suppSet !== undefined && suppSet.indexOf(row.FID__c) >= 0 && $scope.ldrMap[ldrFID] != null){
+                                $scope.ldrMap[ldrFID][this.fieldname] += 1;
+                            }
+                        }
+                    }
+                  },
+            "6A6":{fieldname:"Picket2Supp", handle:true,
+                    fun:function(row){
+                        //• Picket2Supp – use survey code 6A6 
+                        var response = row.Response_Value__c.trim().substring(0,1).toLowerCase();
+                        var addIndex = ["a","m","b","d"];
+                        if(addIndex.indexOf(response) >= 0 && row.Contact__r != null && row.Contact__r.Stretch_Leader__r != null){
+                            var ldrFID = row.Contact__r.Stretch_Leader__r.FID__c;
+                            var suppSet = $scope.ldrSuppSetMap[ldrFID];
+                            if(suppSet !== undefined && suppSet.indexOf(row.FID__c) >= 0 && $scope.ldrMap[ldrFID] != null){
+                                $scope.ldrMap[ldrFID][this.fieldname] += 1;
+                            }
+                        }
+                    }
+                  },
+            "LV1":{fieldname:"LdrActivities",handle:false,y:1},
+            "CAD":{fieldname:"LdrActivities",handle:false,y:1},
+            "CP1":{fieldname:"LdrActivities",handle:false,y:1},
+            "1A0":{fieldname:"LdrActivities",handle:false,y:1},
+            "SC2":{fieldname:"LdrActivities",handle:false,y:1},
+            "037":{fieldname:"LdrActivities",handle:false,y:1},
+            "224":{fieldname:"LdrActivities",handle:false,y:1},
+            "324":{fieldname:"LdrActivities",handle:false,y:1},
+            "331":{fieldname:"LdrActivities",handle:false,y:1},
+            "IHS":{fieldname:"LdrActivities",handle:false,y:1},
+            "ACC":{fieldname:"LdrActivities",handle:false,y:1},
+            "MCC":{fieldname:"LdrActivities",handle:false,y:1},
+            "G02":{fieldname:"LdrActivities",handle:false,y:1},
+            "EA5":{fieldname:"LdrActivities",handle:false,y:1},
+            "HD5":{fieldname:"LdrActivities",handle:false,y:1},
+            "HD4":{fieldname:"LdrActivities",handle:false,y:1},
+            "CAN":{fieldname:"LdrActivities",handle:false,y:1},
+            "119":{fieldname:"LdrActivities",handle:false,y:1},
+        };
+
+        $scope.joinObj = function(a){
+            var out = [];
+
+            for(prop in a){
+                console.log(prop);
+                out.push(prop);
+            }
+
+            return out;
+        }
+        $scope.SRCODELIST = $scope.joinObj($scope.SR_ResponseTable);
+
+        $scope.dots = document.getElementById("progressDiv");
+        $scope.dots.innerHTML = "Working<br/>...";
+        $scope.dotStep = function(){
+            var dLength = $scope.dots.innerHTML.length;            
+            var myDots = $scope.dots.innerHTML.substring(11,dLength);            
+            if(myDots.length < 3){
+                myDots += ".";
+            }
+            else{
+                myDots = ".";
+            }
+            $scope.dots.innerHTML = "Working<br/>" + myDots;
+        }
+
+        $scope.buildEXPORT = function(){
+            var iLength = $scope.leaders.length;
+            for(var i = 0; i < iLength; i++){
+                var thisrow = {};
+                
+                thisrow.Division = $scope.leaders[i].Account.Account_Group__c;
+                thisrow.Organizer = $scope.leaders[i].Organizer;
+                thisrow.Coordinator = $scope.leaders[i].Coordinator;
+                thisrow.RegionalDirector= $scope.leaders[i].RegionalDirector;
+                thisrow.Name = $scope.leaders[i].Name;
+                thisrow.Employer = $scope.leaders[i].Employer;
+                thisrow.Title = $scope.leaders[i].Title;
+                thisrow.FID = $scope.leaders[i].FID__c;
+                thisrow.Department = $scope.leaders[i].Department;
+                thisrow.Eboard = "";
+                if($scope.leaders[i].Eboard){
+                    thisrow.Eboard = "Y";
+                }
+                thisrow.EcomName = $scope.leaders[i].EcomName;
+                thisrow.LA2017 = "";
+                if($scope.leaders[i].LA2017){
+                    thisrow.LA2017 = "Y";
+                }
+                thisrow.DialysisSigs = 0;
+                if($scope.leaders[i].sigs > 0){
+                    thisrow.DialysisSigs = $scope.leaders[i].sigs;
+                }
+                thisrow.LdrActivities = 0;
+                if($scope.leaders[i].LdrActivities > 0){
+                    thisrow.LdrActivities = $scope.leaders[i].LdrActivities;
+                }
+                thisrow.Ninja = "";
+                if($scope.leaders[i].Ninja){
+                    thisrow.Ninja = "Y";
+                }
+                thisrow.COOL = "";
+                if($scope.leaders[i].COOL){
+                    thisrow.COOL = "Y";
+                }
+                thisrow.PB2017 = 0;
+                if($scope.leaders[i].PB2017Shifts > 0){
+                    thisrow.PB2017 = $scope.leaders[i].PB2017Shifts;
+                }
+                thisrow.PB2018 = 0;
+                if($scope.leaders[i].PB2018Shifts > 0){
+                    thisrow.PB2018 = $scope.leaders[i].PB2018Shifts;
+                }
+                thisrow.TotalSupps = 0;
+                if($scope.leaders[i].SupporterCount > 0){
+                    thisrow.TotalSupps = $scope.leaders[i].SupporterCount;
+                }
+                thisrow.Pkt1Supp = 0;
+                thisrow.Pkt1SuppPct = 0.0;
+                if($scope.leaders[i].Picket1Supp > 0){
+                    thisrow.Pkt1Supp = $scope.leaders[i].Picket1Supp;
+                    thisrow.Pkt1SuppPct = thisrow.Pkt1Supp / thisrow.TotalSupps;
+                }
+                thisrow.Pkt2Supp = 0;
+                thisrow.Pkt2SuppPct = 0.0;
+                if($scope.leaders[i].Picket2Supp > 0){
+                    thisrow.Pkt2Supp = $scope.leaders[i].Picket2Supp;
+                    thisrow.Pkt2SuppPct = thisrow.Pkt2Supp / thisrow.TotalSupps;
+                }
+                thisrow.P7ActiveSupps = 0;
+                thisrow.P7ActiveSuppPct = 0.0;
+                if($scope.leaders[i].SupporterActiveCount > 0){
+                    thisrow.P7ActiveSupps = $scope.leaders[i].SupporterActiveCount;
+                    thisrow.P7ActiveSuppPct = thisrow.P7ActiveSupps / thisrow.TotalSupps;
+                }
+                thisrow.Voted = "";
+                if($scope.leaders[i].VotedRatification){
+                    thisrow.Voted = "Y";
+                }
+                thisrow.Goal10x10 = "";
+                if($scope.leaders[i].RoundsTotal > 0){
+                    thisrow.Goal10x10 = $scope.leaders[i].Rounds + " / " + $scope.leaders[i].RoundsTotal;
+                }
+                thisrow.COPE = 0;
+                if($scope.leaders[i].COPE > 0){
+                    thisrow.COPE = $scope.leaders[i].COPE;
+                }
+                thisrow.EboardName = $scope.leaders[i].EboardName;
+                thisrow.HospitalSystem = $scope.leaders[i].Hospital;
+                thisrow.HospitalFilter = $scope.leaders[i].HospitalSystem;
+                thisrow.Seat = $scope.leaders[i].Seat;
+                thisrow.District = $scope.leaders[i].District;
+
+                $scope.EXPORT.push(thisrow);
+            }
+            console.log($scope.EXPORT);
+        }
+
+        /***ORCHESTRATION QUERIES***/
+        $scope.query_eboard =  "Select ConstituencyName__c, SeatHolder__r.FID__c, SeatHolder__r.Name ";
+        $scope.query_eboard += "From EboardSeats__c ";
+        $scope.query_eboard += "Where E_Board_Year__c = '2017' and ConstituencyName__c like '%seat%' and SeatHolder__r.FID__c != null ";
+
+        $scope.query_cons = "select Id, Account.District_2017__r.ConstituencyName__c, Stretch_Leader__r.Account.Name, ";
+        $scope.query_cons += "Stretch_Leader__r.Account.Regional_Director__r.Name, FID__c, Account.Name, Account.Account_Group__c, Department, ";
+        $scope.query_cons += "Stretch_Leader__r.FID__c, Stretch_EBoard_Team__c, Tier_1_Leader__r.FID__c, Executive_Body_Title__c, ";
+        $scope.query_cons += "Account.Organizer_1__r.Name, Account.Coordinator__r.Name, Account.Regional_Director__r.Name, ";
+        $scope.query_cons += "Name, LastName, FirstName, Department_Mod__c, MobilePhone, Email, X80_Leader__c, Title, X80_P7_Active__c, ";
+        $scope.query_cons += "Account.Constituency__r.ConstituencyName__c, Account.Executive_Committee__c, Instated_To_Office__c, COPE_Pledge__c ";
+        $scope.query_cons += "from Contact ";
+        $scope.query_cons += "where Account.MO_Active__c = true AND (NOT Account.Name like \'pomona valley%\') ";
+        $scope.query_cons += "AND  (In_Current_BU__c = true OR In_Current_BU_Override__c >= LAST_N_MONTHS:6 ) AND ";
+        $scope.query_cons += "Account.Regional_Director__c != null ";
+
+        $scope.query_sr = "select Id, Contact__c, FID__c, Contact_Name__c, Division__c, Employer_Name__c, Contact__r.Worksite__c, ";
+        $scope.query_sr += "   Department__c, Contact__r.Shift__c, Contact__r.Age_Range__c, Question_Name__c, Survey_Code__c, Response_Value__c, ";
+        $scope.query_sr += "   Add_Info_Numeric__c, Collected_By__c, Collected_By_Name__c, Collected_By_Employer_Name__c,  ";
+        $scope.query_sr += "   Contact__r.Age__c, Contact__r.Gender__c, Contact__r.County__c, Contact__r.Executive_Body_Title__c, ";
+        $scope.query_sr += "   Contact__r.COPE_Pledge__c, Contact__r.COPE_Baseline_Pledge__c  , Add_Info__c, Collected_By__r.Worksite__c, ";
+        $scope.query_sr += "   Collected_By__r.Department, Contact__r.In_Current_BU__c, Collected_By__r.Age_Range__c, Collected_By__r.Shift__c, ";
+        $scope.query_sr += "   Collected_By__r.In_Current_BU__c, Survey_How_Old__c, Report_Group__c, Contact__r.Tier_Staff__c, ";
+        $scope.query_sr += "   Collected_By__r.Tier_Staff__c, Collected_By__r.FID__c, LastModifiedBy.Name, ";
+        $scope.query_sr += "   Contact__r.Stretch_Leader__r.FID__c, ";
+        $scope.query_sr += "   Contact__r.Stretch_EBoard_Team__c, Contact__r.Tier_1_Leader__r.FID__c,";
+        $scope.query_sr += "   Contact__r.Report_Tags__c, ";
+        $scope.query_sr += "   Contact__r.Stretch_Leader__r.Report_Tags__c, ";
+        $scope.query_sr += "   Contact__r.Stretch_Team_Intake_Phase__c ";
+        $scope.query_sr += " from Survey_Response__c where ";
+        $scope.query_sr += " (NOT Employer_Name__c like \'pomona valley%\') ";
+        $scope.query_sr += " AND (Survey_Code__c in (\'" + $scope.SRCODELIST.join("\',\'")+ "\')";
+        $scope.query_sr += " ) ";
+
+        $scope.query_pl = "Select Id, Name, Transferred_From__r.Name,Transferred_From__r.FID__c, Transfer_Type__c, Quantity__c, ";
+        $scope.query_pl += "Valid_Signatures__c, Bad_Signatures__c ";
+        $scope.query_pl += "From Petition_Ledger__c ";
+        $scope.query_pl += "Where Transferred_From__c != null and Transfer_Type__c like \'o%\' ";
+
+        /*** APP INITIALIZATION ***/
+
+        $scope.init_ldrs = function(){
+            //
+            //  Leader data structures
+            //
+            $scope.xset = [];
+            $scope.ldrSet = [];
+            $scope.ldrMap = {};
+            $scope.statusMap = {};
+            // a mapping of Ldr FIDs to an array/set of Supporter FIDs
+            $scope.ldrSuppSetMap = [];
+            $scope.ldrSuppActiveSetMap = [];
+            //eboard things
+            $scope.eboardMap = {};
+            $scope.ecomMap = {};
+            $scope.ecom = {!ecomJSON};
+            $scope.ecomMapSetup();
+            console.log($scope.ecomMap);            
+        }
+
+        $scope.init_data = function(){
+            $scope.emCorpMap = {};
+            $scope.employers = [];
+            $scope.emSet = [];
+            $scope.seatSet = [];
+            $scope.seatEboardMap = {};
+            $scope.seatEboardMapPeople = {};
+            $scope.districtSet = [];
+            $scope.districtEcommMap = {};
+            $scope.rdSet = [];
+            $scope.cdSet = [];
+            $scope.orgSet = [];
+            $scope.turfMap = {};
+            $scope.turfJSON = {!turfJSON};
+            $scope.turfMapSetup();
+            //console.log($scope.seatSet);
+            //console.log($scope.emCorpMap);
+        }
+
+        $scope.init_output = function(){
+            $scope.divisions = [];
+            $scope.regionalDirectors = [];
+            $scope.coordinators = [];
+            $scope.organizers = [];
+            $scope.leaders = [];
+
+            $scope.empTable = [];
+            $scope.ecmTable = [];
+
+        }
+
+        $scope.init = function() {
+            $scope.user = {!userJSON};
+            $scope.OUTPUT = {};
+            $scope.EXPORT = [];
+            $scope.init_ldrs();
+            $scope.init_data();
+            $scope.init_output();
+            $scope.getData($scope.query_eboard);
+        }
+
+        $scope.endReport = function(){
+            console.log("report ending calcs");
+            console.log($scope.turfMap);
+            $scope.eboardPeopleMapSetup();            
+            $scope.buildOUTPUT_LDRS();
+            $scope.buildEXPORT();
+            $scope.ldrTableShow = true;
+            $('#progressDiv').hide();  //hide loading dots
+            console.log($scope.leaders);
+            console.log($scope.ldrSuppActiveSetMap);
+            $scope.$apply();
+        }
+
+        //enter app
+        $scope.init();
+
+    });
+
+</script>
+
+</apex:page>

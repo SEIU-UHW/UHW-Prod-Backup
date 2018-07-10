@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>/apex/Redirector?purl=a0s0H00000IX34l</description>
+    <frameHeight>600</frameHeight>
+    <hasSidebar>false</hasSidebar>
+    <label>KaiserJunetoSept2018</label>
+    <mobileReady>false</mobileReady>
+    <motif>Custom55: Books</motif>
+    <url>/apex/Redirector?purl=a0s0H00000IX34l</url>
+    <urlEncodingKey>UTF-8</urlEncodingKey>
+</CustomTab>

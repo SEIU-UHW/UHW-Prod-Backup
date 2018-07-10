@@ -1,0 +1,1102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Recruit</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Recruits</value>
+    </caseValues>
+    <fields>
+        <label><!-- Agent --></label>
+        <name>Agent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Alt Email --></label>
+        <name>Alt_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Alt Employer --></label>
+        <name>Alt_Employer__c</name>
+        <relationshipLabel><!-- Recruits --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Alt First Name --></label>
+        <name>Alt_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Alt Language --></label>
+        <name>Alt_Language__c</name>
+        <picklistValues>
+            <masterLabel>CANTONESE</masterLabel>
+            <translation><!-- CANTONESE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CHINESE</masterLabel>
+            <translation><!-- CHINESE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HMONG</masterLabel>
+            <translation><!-- HMONG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MANDARIN</masterLabel>
+            <translation><!-- MANDARIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RUSSIAN</masterLabel>
+            <translation><!-- RUSSIAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SPANISH</masterLabel>
+            <translation><!-- SPANISH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VIETNAMESE</masterLabel>
+            <translation><!-- VIETNAMESE --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Alt Last Name --></label>
+        <name>Alt_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Alt Middle Name --></label>
+        <name>Alt_Middle_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Alt Person Type --></label>
+        <name>Alt_Person_Type__c</name>
+        <picklistValues>
+            <masterLabel>Allies</masterLabel>
+            <translation><!-- Allies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friends/Family</masterLabel>
+            <translation><!-- Friends/Family --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Yet Union</masterLabel>
+            <translation><!-- Not Yet Union --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-member Community</masterLabel>
+            <translation><!-- Pre-member Community --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-member Hospital/Kaiser</masterLabel>
+            <translation><!-- Pre-member Hospital/Kaiser --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Alt Phone --></label>
+        <name>Alt_Phone__c</name>
+    </fields>
+    <fields>
+        <help><!-- Attended with credit shifts --></help>
+        <label><!-- Attended --></label>
+        <name>Attended_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Attended Old --></label>
+        <name>Attended__c</name>
+    </fields>
+    <fields>
+        <label><!-- COPE Pledge --></label>
+        <name>COPE_Pledge__c</name>
+    </fields>
+    <fields>
+        <label><!-- CS Recruited By --></label>
+        <name>CS_Recruited_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- CS Volunteer --></label>
+        <name>CS_Volunteer__c</name>
+    </fields>
+    <fields>
+        <label><!-- CmtAttnd --></label>
+        <name>CmtAttnd__c</name>
+    </fields>
+    <fields>
+        <label><!-- CmtHour --></label>
+        <name>CmtHour__c</name>
+    </fields>
+    <fields>
+        <label><!-- CommitDateTime --></label>
+        <name>CommitDateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commit Date --></label>
+        <name>Commit_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commit --></label>
+        <name>Commit__c</name>
+    </fields>
+    <fields>
+        <help><!-- For Community Only. --></help>
+        <label><!-- Community Organizer --></label>
+        <name>Community_Organizer_Recruited_By__c</name>
+        <relationshipLabel><!-- Recruits (Recruited By Organizer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Confirmed and Attended --></help>
+        <label><!-- ConfAttnd --></label>
+        <name>ConfAttnd__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a confirmed datetime field short name use for list view. --></help>
+        <label><!-- ConfDt --></label>
+        <name>ConfDt__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a confirmed field short name use for list view. --></help>
+        <label><!-- Conf --></label>
+        <name>Conf__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confirm Response --></label>
+        <name>Confirm_Response__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confirmed Time --></label>
+        <name>Confirmed_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confirmed --></label>
+        <name>Confirmed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Id --></label>
+        <name>Contact_Id__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Coordinator or Acting Manager of the UNION REP/ORG. --></help>
+        <label><!-- Coordinator --></label>
+        <name>Coordinator__c</name>
+    </fields>
+    <fields>
+        <help><!-- A minimum of 90 mins or more and less than 179 minutes is Half shift; 180 minutes or more is Full shift. --></help>
+        <label><!-- CreditShift --></label>
+        <name>CreditShift__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit --></label>
+        <name>Credit__c</name>
+        <picklistValues>
+            <masterLabel>Full</masterLabel>
+            <translation><!-- Full --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Half</masterLabel>
+            <translation><!-- Half --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Department --></label>
+        <name>Department__c</name>
+    </fields>
+    <fields>
+        <help><!-- Division or Department of the  Recruited By (a staff/rep or a member) and included in the Division Turn Out Report;
+Staff shift is excluded; --></help>
+        <label><!-- Division --></label>
+        <name>Division__c</name>
+    </fields>
+    <fields>
+        <label><!-- Eboard --></label>
+        <name>Eboard__c</name>
+    </fields>
+    <fields>
+        <help><!-- Elapsed Time (in minutes) between Sign In and Out Time --></help>
+        <label><!-- ElapsedMins --></label>
+        <name>ElapsedMins__c</name>
+    </fields>
+    <fields>
+        <help><!-- Elapsed Time between Sign In and Out Time --></help>
+        <label><!-- ElapsedTime --></label>
+        <name>ElapsedTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer ID --></label>
+        <name>Employer_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer Name --></label>
+        <name>Employer_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employer Region --></label>
+        <name>Employer_Region__c</name>
+    </fields>
+    <fields>
+        <label><!-- Exempt Staff --></label>
+        <name>Exempt_Staff__c</name>
+    </fields>
+    <fields>
+        <label><!-- FID --></label>
+        <name>FID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Goal --></label>
+        <name>Goal__c</name>
+    </fields>
+    <fields>
+        <label><!-- GotvJun2 --></label>
+        <name>GotvJun2__c</name>
+    </fields>
+    <fields>
+        <label><!-- GotvJun3 --></label>
+        <name>GotvJun3__c</name>
+    </fields>
+    <fields>
+        <label><!-- GotvJun4 --></label>
+        <name>GotvJun4__c</name>
+    </fields>
+    <fields>
+        <label><!-- GotvJun5 --></label>
+        <name>GotvJun5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Has Contact Record --></label>
+        <name>Has_Contact_Record__c</name>
+    </fields>
+    <fields>
+        <label><!-- Language --></label>
+        <name>Language__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last COPE Payment --></label>
+        <name>Last_COPE_Payment__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a location field short name use for list view. --></help>
+        <label><!-- Loc --></label>
+        <name>Loc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location Region --></label>
+        <name>Location_Region__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+        <picklistValues>
+            <masterLabel>Arroyo Grande GOTV 10AM-2PM</masterLabel>
+            <translation><!-- Arroyo Grande GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arroyo Grande GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Arroyo Grande GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arroyo Grande GOTV 2PM-6PM</masterLabel>
+            <translation><!-- Arroyo Grande GOTV 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arroyo Grande GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Arroyo Grande GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arroyo Grande GOTV 5PM-9PM</masterLabel>
+            <translation><!-- Arroyo Grande GOTV 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bakersfield GOTV 10AM-2PM</masterLabel>
+            <translation><!-- Bakersfield GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bakersfield GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Bakersfield GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bakersfield GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Bakersfield GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bakersfield GOTV 5PM-9PM</masterLabel>
+            <translation><!-- Bakersfield GOTV 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chico GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Chico GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chico GOTV 2PM-6PM</masterLabel>
+            <translation><!-- Chico GOTV 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chico GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Chico GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chico GOTV 5PM-9PM</masterLabel>
+            <translation><!-- Chico GOTV 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fresno GOTV 10AM-2PM</masterLabel>
+            <translation><!-- Fresno GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fresno GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Fresno GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fresno GOTV 12PM-4PM</masterLabel>
+            <translation><!-- Fresno GOTV 12PM-4PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fresno GOTV 2PM-6PM</masterLabel>
+            <translation><!-- Fresno GOTV 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fresno GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Fresno GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fresno GOTV 4PM-8PM</masterLabel>
+            <translation><!-- Fresno GOTV 4PM-8PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fresno GOTV 5PM-9PM</masterLabel>
+            <translation><!-- Fresno GOTV 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lancaster GOTV 10AM-2PM</masterLabel>
+            <translation><!-- Lancaster GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lancaster GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Lancaster GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lancaster GOTV 12PM-4PM</masterLabel>
+            <translation><!-- Lancaster GOTV 12PM-4PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lancaster GOTV 2PM-6PM</masterLabel>
+            <translation><!-- Lancaster GOTV 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lancaster GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Lancaster GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lancaster GOTV 4PM-8PM</masterLabel>
+            <translation><!-- Lancaster GOTV 4PM-8PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lancaster GOTV 5PM-9PM</masterLabel>
+            <translation><!-- Lancaster GOTV 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Los Angeles GOTV 10AM-2PM</masterLabel>
+            <translation><!-- Los Angeles GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Los Angeles GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Los Angeles GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Los Angeles GOTV 12PM-4PM</masterLabel>
+            <translation><!-- Los Angeles GOTV 12PM-4PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Los Angeles GOTV 2PM-6PM</masterLabel>
+            <translation><!-- Los Angeles GOTV 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Los Angeles GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Los Angeles GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Los Angeles GOTV 4PM-8PM</masterLabel>
+            <translation><!-- Los Angeles GOTV 4PM-8PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Los Angeles GOTV 5PM-9PM</masterLabel>
+            <translation><!-- Los Angeles GOTV 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NONE</masterLabel>
+            <translation><!-- NONE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oakland GOTV 10AM-2PM</masterLabel>
+            <translation><!-- Oakland GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oakland GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Oakland GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oakland GOTV 12PM-4PM</masterLabel>
+            <translation><!-- Oakland GOTV 12PM-4PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oakland GOTV 2PM-6PM</masterLabel>
+            <translation><!-- Oakland GOTV 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oakland GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Oakland GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oakland GOTV 4PM-8PM</masterLabel>
+            <translation><!-- Oakland GOTV 4PM-8PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oakland GOTV 5PM-9PM</masterLabel>
+            <translation><!-- Oakland GOTV 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oceanside GOTV 10AM-2PM</masterLabel>
+            <translation><!-- Oceanside GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oceanside GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Oceanside GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oceanside GOTV 2PM-6PM</masterLabel>
+            <translation><!-- Oceanside GOTV 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oceanside GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Oceanside GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orange County GOTV 10AM-2PM</masterLabel>
+            <translation><!-- Orange County GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orange County GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Orange County GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orange County GOTV 12PM-4PM</masterLabel>
+            <translation><!-- Orange County GOTV 12PM-4PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orange County GOTV 2PM-6PM</masterLabel>
+            <translation><!-- Orange County GOTV 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orange County GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Orange County GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orange County GOTV 4PM-8PM</masterLabel>
+            <translation><!-- Orange County GOTV 4PM-8PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Redding GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Redding GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Redding GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Redding GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Redding GOTV 5PM-9PM</masterLabel>
+            <translation><!-- Redding GOTV 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Riverside GOTV 10AM-2PM</masterLabel>
+            <translation><!-- Riverside GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Riverside GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Riverside GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Riverside GOTV 12N-4PM</masterLabel>
+            <translation><!-- Riverside GOTV 12N-4PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Riverside GOTV 2PM-6PM</masterLabel>
+            <translation><!-- Riverside GOTV 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Riverside GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Riverside GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Riverside GOTV 4PM-8PM</masterLabel>
+            <translation><!-- Riverside GOTV 4PM-8PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Riverside GOTV 5PM-9PM</masterLabel>
+            <translation><!-- Riverside GOTV 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sacramento GOTV 10AM-2PM</masterLabel>
+            <translation><!-- Sacramento GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sacramento GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Sacramento GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sacramento GOTV 12PM-4PM</masterLabel>
+            <translation><!-- Sacramento GOTV 12PM-4PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sacramento GOTV 2PM-6PM</masterLabel>
+            <translation><!-- Sacramento GOTV 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sacramento GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Sacramento GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sacramento GOTV 4PM-8PM</masterLabel>
+            <translation><!-- Sacramento GOTV 4PM-8PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sacramento GOTV 5PM-9PM</masterLabel>
+            <translation><!-- Sacramento GOTV 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Fernando GOTV 10AM-2PM</masterLabel>
+            <translation><!-- San Fernando GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Fernando GOTV 11AM-3PM</masterLabel>
+            <translation><!-- San Fernando GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Fernando GOTV 12PM-4PM</masterLabel>
+            <translation><!-- San Fernando GOTV 12PM-4PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Fernando GOTV 2PM-6PM</masterLabel>
+            <translation><!-- San Fernando GOTV 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Fernando GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- San Fernando GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Fernando GOTV 4PM-8PM</masterLabel>
+            <translation><!-- San Fernando GOTV 4PM-8PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Fernando GOTV 5PM-9PM</masterLabel>
+            <translation><!-- San Fernando GOTV 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Francisco GOTV 10AM-2PM</masterLabel>
+            <translation><!-- San Francisco GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Francisco GOTV 11AM-3PM</masterLabel>
+            <translation><!-- San Francisco GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Francisco GOTV 12N-4PM</masterLabel>
+            <translation><!-- San Francisco GOTV 12N-4PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Francisco GOTV 2PM-6PM</masterLabel>
+            <translation><!-- San Francisco GOTV 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Francisco GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- San Francisco GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Francisco GOTV 4PM-8PM</masterLabel>
+            <translation><!-- San Francisco GOTV 4PM-8PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Francisco GOTV 5PM-9PM</masterLabel>
+            <translation><!-- San Francisco GOTV 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Jose GOTV 10AM-2PM</masterLabel>
+            <translation><!-- San Jose GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Jose GOTV 11AM-3PM</masterLabel>
+            <translation><!-- San Jose GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Jose GOTV 12PM-4PM</masterLabel>
+            <translation><!-- San Jose GOTV 12PM-4PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Jose GOTV 2PM-6PM</masterLabel>
+            <translation><!-- San Jose GOTV 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Jose GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- San Jose GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Jose GOTV 4PM-8PM</masterLabel>
+            <translation><!-- San Jose GOTV 4PM-8PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Jose GOTV 5PM-9PM</masterLabel>
+            <translation><!-- San Jose GOTV 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Santa Rosa GOTV 10AM-2PM</masterLabel>
+            <translation><!-- Santa Rosa GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Santa Rosa GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Santa Rosa GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Santa Rosa GOTV 2PM-6PM</masterLabel>
+            <translation><!-- Santa Rosa GOTV 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Santa Rosa GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Santa Rosa GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stockton GOTV 10AM-2PM</masterLabel>
+            <translation><!-- Stockton GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stockton GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Stockton GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stockton GOTV 2PM-6PM</masterLabel>
+            <translation><!-- Stockton GOTV 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stockton GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Stockton GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stockton GOTV 5PM-9PM</masterLabel>
+            <translation><!-- Stockton GOTV 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vallejo GOTV 10AM-2PM</masterLabel>
+            <translation><!-- Vallejo GOTV 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vallejo GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Vallejo GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vallejo GOTV 12PM-4PM</masterLabel>
+            <translation><!-- Vallejo GOTV 12PM-4PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vallejo GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Vallejo GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vallejo GOTV 5PM-9PM</masterLabel>
+            <translation><!-- Vallejo GOTV 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ventura GOTV 11AM-3PM</masterLabel>
+            <translation><!-- Ventura GOTV 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ventura GOTV 12PM-4PM</masterLabel>
+            <translation><!-- Ventura GOTV 12PM-4PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ventura GOTV 3:30PM-7:30PM</masterLabel>
+            <translation><!-- Ventura GOTV 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ventura GOTV 4PM-8PM</masterLabel>
+            <translation><!-- Ventura GOTV 4PM-8PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ventura GOTV 5PM-9PM</masterLabel>
+            <translation><!-- Ventura GOTV 5PM-9PM --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Name --></label>
+        <name>Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- No Show (Expected) --></label>
+        <name>No_Show_Expected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the UNION REP/ORG of Kaiser, Hospital and Community division. --></help>
+        <label><!-- Organizer --></label>
+        <name>Organizer__c</name>
+    </fields>
+    <fields>
+        <help><!-- When the Organizer in the Recruited by (who gets the credit) is not the current Organizer, check this box; Note- the record owner should be the Organizer getting the credit. --></help>
+        <label><!-- Override Organizer --></label>
+        <name>Override_Organizer__c</name>
+    </fields>
+    <fields>
+        <label><!-- PB Date --></label>
+        <name>PB_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- PDI Id --></help>
+        <label><!-- PDI --></label>
+        <name>PDI__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partner Organization --></label>
+        <name>Partner_Organization__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partner --></label>
+        <name>Partner__c</name>
+    </fields>
+    <fields>
+        <label><!-- PastCommit --></label>
+        <name>PastCmt__c</name>
+    </fields>
+    <fields>
+        <label><!-- PastConf --></label>
+        <name>PastConf__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone --></label>
+        <name>Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- R-Name --></label>
+        <name>R_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a field short name use for list view. --></help>
+        <label><!-- RecID --></label>
+        <name>RecID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Count --></label>
+        <name>Record_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- RecruitDay --></label>
+        <name>RecruitDay__c</name>
+    </fields>
+    <fields>
+        <label><!-- AgentId --></label>
+        <name>Recruit_Agent__c</name>
+        <relationshipLabel><!-- Recruits --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Recruit Name 2 --></label>
+        <name>Recruit_Name_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recruit Name --></label>
+        <name>Recruit_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recruit Status --></label>
+        <name>Recruit_Status__c</name>
+        <picklistValues>
+            <masterLabel>Canceled</masterLabel>
+            <translation><!-- Canceled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signed Up</masterLabel>
+            <translation><!-- Signed Up --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If the recruit is not a member or a community, leave this blank. Enter the recruit on the Family/Friends section. --></help>
+        <label><!-- Recruit --></label>
+        <name>Recruit__c</name>
+        <relationshipLabel><!-- Recruits --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Recruited By Eboard --></label>
+        <name>Recruited_By_Eboard__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recruited By FID --></label>
+        <name>Recruited_By_FID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recruited By Title --></label>
+        <name>Recruited_By_Title__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the person getting the credit (member or organizer/rep). --></help>
+        <label><!-- Recruited By --></label>
+        <name>Recruited_By__c</name>
+        <relationshipLabel><!-- Recruits (Recruited By) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Field director of the UNION REP/ORG. --></help>
+        <label><!-- Regional Director --></label>
+        <name>Regional_Director__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a reminded datetime field short name use for list view. --></help>
+        <label><!-- RemDt --></label>
+        <name>RemDt__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a reminded field short name use for list view. --></help>
+        <label><!-- Rem --></label>
+        <name>Rem__c</name>
+    </fields>
+    <fields>
+        <label><!-- Remind Response --></label>
+        <name>Remind_Response__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reminded Time --></label>
+        <name>Reminded_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reminded --></label>
+        <name>Reminded__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rep/Org --></label>
+        <name>Rep_Org__c</name>
+    </fields>
+    <fields>
+        <label><!-- Report Tags --></label>
+        <name>Report_Tags__c</name>
+    </fields>
+    <fields>
+        <label><!-- SatTotShift --></label>
+        <name>SatTotShift__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shift End --></label>
+        <name>Shift_End__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shift Start --></label>
+        <name>Shift_Start__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shift Status --></label>
+        <name>Shift_Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Show</masterLabel>
+            <translation><!-- No Show --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partial</masterLabel>
+            <translation><!-- Partial --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Shift --></label>
+        <name>Shift__c</name>
+        <picklistValues>
+            <masterLabel>10AM-2PM</masterLabel>
+            <translation><!-- 10AM-2PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11AM-3PM</masterLabel>
+            <translation><!-- 11AM-3PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12N-4PM</masterLabel>
+            <translation><!-- 12N-4PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12PM-4PM</masterLabel>
+            <translation><!-- 12PM-4PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2PM-6PM</masterLabel>
+            <translation><!-- 2PM-6PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3:30PM-7:30PM</masterLabel>
+            <translation><!-- 3:30PM-7:30PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4PM-8PM</masterLabel>
+            <translation><!-- 4PM-8PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5PM-9PM</masterLabel>
+            <translation><!-- 5PM-9PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Afternoon</masterLabel>
+            <translation><!-- Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evening</masterLabel>
+            <translation><!-- Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Morning</masterLabel>
+            <translation><!-- Morning --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Signed In Time --></label>
+        <name>Signed_In_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Signed In --></label>
+        <name>Signed_In__c</name>
+    </fields>
+    <fields>
+        <label><!-- Signed Out Time --></label>
+        <name>Signed_Out_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Signed Out --></label>
+        <name>Signed_Out__c</name>
+    </fields>
+    <fields>
+        <label><!-- No Show --></label>
+        <name>Signed_Up_But_No_Show__c</name>
+    </fields>
+    <fields>
+        <label><!-- Signed-Up --></label>
+        <name>Signed_Up_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Show-No Credit --></label>
+        <name>Signed_Up_Showed_Up_Zero_Credit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Staff Shift --></label>
+        <name>Staff_Shift__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- SurpriseShow --></label>
+        <name>SurpriseShow__c</name>
+    </fields>
+    <fields>
+        <label><!-- TotalShiftCompleted_Old --></label>
+        <name>TotalShiftCompleted_Old__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shift Completed --></label>
+        <name>Total_Shift__c</name>
+    </fields>
+    <fields>
+        <label><!-- TueTotShift --></label>
+        <name>TueTotShift__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do not touch this; System Generated --></help>
+        <label><!-- UniqueId --></label>
+        <name>UniqueId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Date --></label>
+        <name>Volunteer_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Type --></label>
+        <name>Volunteer_Type__c</name>
+        <picklistValues>
+            <masterLabel>Phone Banking</masterLabel>
+            <translation><!-- Phone Banking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Precinct Walking</masterLabel>
+            <translation><!-- Precinct Walking --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- WedTotShift --></label>
+        <name>WedTotShift__c</name>
+    </fields>
+    <fields>
+        <label><!-- Wkly Goal --></label>
+        <name>Wkly_Goal__c</name>
+    </fields>
+    <fields>
+        <label><!-- elapsedtest --></label>
+        <name>elapsedtest__c</name>
+    </fields>
+    <fields>
+        <label><!-- rec_cnt --></label>
+        <name>rec_cnt__c</name>
+    </fields>
+    <layouts>
+        <layout>Recruit Layout</layout>
+        <sections>
+            <label><!-- Confirmed/Reminded --></label>
+            <section>Confirmed/Reminded</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Family/Friends/Allies/Pre-Member --></label>
+            <section>Family/Friends/Allies/Pre-Member</section>
+        </sections>
+        <sections>
+            <label><!-- Other Info --></label>
+            <section>Other Info</section>
+        </sections>
+        <sections>
+            <label><!-- Recruit --></label>
+            <section>Recruit</section>
+        </sections>
+        <sections>
+            <label><!-- Shift --></label>
+            <section>Shift</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please select Alt Person Type --></errorMessage>
+        <name>Alt_Person_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot sign in for future phone bank date. --></errorMessage>
+        <name>Check_PB_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot sign out. This volunteer is not signed in. --></errorMessage>
+        <name>Check_Sign_In</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please use Outlying North or South. --></errorMessage>
+        <name>Val1</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- FRS_Agents --></label>
+        <name>FRS_Agents</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- PB_Confirm --></label>
+        <name>PB_Confirm</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- PB_Remind --></label>
+        <name>PB_Remind</name>
+    </webLinks>
+</CustomObjectTranslation>

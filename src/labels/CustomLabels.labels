@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Approval_Exception_Emails</fullName>
+        <categories>Approval</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Approval Exception Usernames</shortDescription>
+        <value>ltemple@seiu-uhw.org;hruddick@seiu-uhw.org</value>
+    </labels>
+    <labels>
+        <fullName>Exception_Approver</fullName>
+        <categories>Approval</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Exception Approver</shortDescription>
+        <value>sgopal2512@gmail.com</value>
+    </labels>
+    <labels>
+        <fullName>HR_Group_Id</fullName>
+        <categories>Id</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HR Group Id</shortDescription>
+        <value>00Gi0000001nNmk</value>
+    </labels>
+    <labels>
+        <fullName>OvertimeRecordtype</fullName>
+        <categories>RecordType Id</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Overtime Recordtype Id</shortDescription>
+        <value>012i0000001IEuF</value>
+    </labels>
+    <labels>
+        <fullName>Salesforce_URL</fullName>
+        <categories>URL</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Salesforce URL</shortDescription>
+        <value>https://uhw.my.salesforce.com/</value>
+    </labels>
+    <labels>
+        <fullName>TLS_Warning_Help_URL_Link_Text</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TLS Warning Help URL Link Text</shortDescription>
+        <value>Instructions</value>
+    </labels>
+    <labels>
+        <fullName>TLS_Warning_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TLS Warning Message</shortDescription>
+        <value>This device is using TLS 1.0 to access Salesforce, and TLS 1.0 will no longer work after {effective_date}.</value>
+    </labels>
+    <labels>
+        <fullName>Time_Off_Request_Id</fullName>
+        <categories>RecordType Id</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Time Off Request Id</shortDescription>
+        <value>012i0000001IEuG</value>
+    </labels>
+</CustomLabels>
